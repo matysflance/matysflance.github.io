@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    //this defiines what 1 rem size is
+    /* 10/16 = 0.625 ==> percentage root font-size is set so that users are still able to manipulate a default browser font-size */
+    font-size: 62.5%;
+
+    @include respond(tablet-landscape) {
+        //1rem = 9px ==> 9/16 = 0.5625;
+        font-size: 56.25%;
+    }
+
+    @include respond(tablet-portrait) {
+        //1rem = 9px ==> 8/16 = 50%;
+        font-size: 50%;
+    }
+
+    @include respond(big-desktop) {
+        //1rem = 9px ==> 12/16 = 75%;
+        font-size: 75%;
+    }
+
+}
+
+body {
+    box-sizing: border-box;
+    background-color: $color-grey-light-1;
+    padding: 3rem;
+
+    @include respond(tablet-portrait) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
